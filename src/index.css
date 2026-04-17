@@ -1,0 +1,592 @@
+/* ==============================================================
+   RETRO / BRUTALIST PORTFOLIO THEME
+   Black, Beige, White, Red
+   ============================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap');
+
+:root {
+    --bg-beige: #D9D2C5;
+    --black: #161616;
+    --white: #F4F4F4;
+    --red: #C53030;
+    /* Noise texture (subtle vintage grain) */
+    --noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    background-color: var(--bg-beige);
+    color: var(--black);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Global Noise Overlay using pseudo-element */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--noise-bg);
+    opacity: 0.05;
+    pointer-events: none;
+    /* Let clicks pass through */
+    z-index: 9999;
+}
+
+
+/* --- NAVBAR --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* No solid background, strictly borders & typography */
+    background-color: var(--bg-beige);
+    border-bottom: 2px solid var(--black);
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+}
+
+.navbar .logo a {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.navbar nav a {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.navbar nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.navbar nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+/* --- SECTION 1: HERO (ASYMMETRICAL LAYERS) --- */
+.hero {
+    height: 100vh;
+    padding-top: 90px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    background-color: var(--bg-beige);
+    border-bottom: 2px solid var(--black);
+}
+
+/* Center Image Anchor */
+.hero-image-container {
+    position: absolute;
+    bottom: -5px;
+    /* sit flush on border */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 105vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 5;
+    filter: drop-shadow(15px 15px 0px var(--red));
+}
+
+.hero-image-container img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Left Typography (No overlap with center image) */
+.hero-text-left {
+    z-index: 10;
+    /* Safely placed in front */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 35vw;
+    /* strict boundary so it doesn't touch the image */
+    margin-top: -40vh;
+    /* way up as requested */
+}
+
+.hero-text-left .greeting {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+    /* Removed the negative overlap */
+    z-index: 10;
+    background: var(--bg-beige);
+    display: inline-block;
+    padding: 0 10px;
+    border: 1px solid var(--black);
+}
+
+.hero-text-left .first-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 5.8vw;
+    /* Much smaller to clearly avoid the picture */
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--black);
+}
+
+.hero-text-left .last-name {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 5.5vw;
+    line-height: 1;
+    color: var(--white);
+    -webkit-text-stroke: 2px var(--black);
+    z-index: 10;
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+.hero-red-btn {
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border: 2px solid var(--black);
+    cursor: pointer;
+    box-shadow: 4px 4px 0px var(--black);
+    text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+    display: inline-block;
+}
+
+.hero-red-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px var(--black);
+}
+
+.hero-red-btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0px var(--black);
+}
+
+/* Right Typography */
+.hero-text-right {
+    z-index: 10;
+    max-width: 300px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.hero-text-right h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--black);
+    border-top: 2px solid var(--black);
+    padding-top: 1rem;
+}
+
+.hero-text-right p {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--black);
+    border-top: 1px solid var(--black);
+    padding-top: 1rem;
+}
+
+.retro-stamp {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    color: var(--red);
+    border: 2px solid var(--red);
+    padding: 5px 15px;
+    border-radius: 5px;
+    transform: rotate(5deg);
+    display: inline-block;
+    width: max-content;
+}
+
+
+/* --- SECTION 2: GRID (STAGES OF WORK) --- */
+
+.portfolio-grid-section {
+    background-color: var(--black);
+    color: var(--bg-beige);
+    padding: 6rem 3rem;
+    border-bottom: 2px solid var(--black);
+}
+
+.grid-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.grid-section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bg-beige);
+}
+
+/* The actual rigid brutalist grid */
+.stage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Base style for grid items */
+.grid-cell {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid-cell:hover {
+    transform: translateY(-8px);
+    box-shadow: 8px 8px 0px var(--red);
+    z-index: 2;
+    /* Pop over siblings */
+}
+
+/* Huge Retro Numbers */
+.grid-cell .cell-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    align-self: flex-start;
+}
+
+.grid-cell .cell-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.grid-cell .cell-desc {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+/* Solid Variants */
+.grid-cell.solid {
+    background-color: var(--bg-beige);
+    border: 1px solid var(--bg-beige);
+    /* helps with layout consistency */
+}
+
+.grid-cell.solid .cell-number {
+    color: var(--black);
+}
+
+.grid-cell.solid .cell-title {
+    color: var(--black);
+}
+
+.grid-cell.solid .cell-desc {
+    color: #555;
+}
+
+/* Outline/Hollow Variants */
+.grid-cell.outline {
+    background-color: transparent;
+    border: 1px solid var(--bg-beige);
+}
+
+.grid-cell.outline .cell-number {
+    color: var(--bg-beige);
+}
+
+.grid-cell.outline .cell-title {
+    color: var(--bg-beige);
+}
+
+.grid-cell.outline .cell-desc {
+    color: #ccc;
+}
+
+/* Red highlight variant */
+.grid-cell.accent {
+    background-color: var(--red);
+    border: 1px solid var(--red);
+}
+
+.grid-cell.accent * {
+    color: var(--bg-beige) !important;
+}
+
+
+/* --- SECTION 3: OTHER (Standardizing old structures softly) --- */
+
+.vintage-container {
+    padding: 6rem 4rem;
+    background-color: var(--bg-beige);
+    border-bottom: 2px solid var(--black);
+}
+
+.vintage-header {
+    font-family: 'Syne', sans-serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 3rem;
+    border-bottom: 4px solid var(--black);
+    padding-bottom: 1rem;
+}
+
+/* Adjust projects */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.project-item {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+    border: 2px solid var(--black);
+    background: var(--white);
+    padding: 1.5rem;
+    box-shadow: 10px 10px 0px var(--black);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-item:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 7px 7px 0px var(--red);
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid var(--black);
+    filter: grayscale(100%) contrast(1.2);
+    transition: filter 0.3s;
+}
+
+.project-item:hover .project-img {
+    filter: grayscale(0%);
+}
+
+.project-info h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.project-info .tech-stack {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    background: var(--black);
+    color: var(--white);
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 1rem;
+}
+
+/* Contact Brutalist */
+.contact-box {
+    border: 2px solid var(--black);
+    padding: 3rem;
+    background: var(--white);
+    box-shadow: -15px 15px 0px var(--red);
+}
+
+.contact-box form label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: var(--black);
+    text-transform: uppercase;
+}
+
+.contact-box form input,
+.contact-box form textarea {
+    background: var(--bg-beige);
+    border: 2px solid var(--black);
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--black);
+    font-family: 'Space Mono', monospace;
+}
+
+.contact-box form input:focus,
+.contact-box form textarea:focus {
+    background: var(--white);
+    border-color: var(--red);
+}
+
+.btn-retro {
+    background: var(--black);
+    color: var(--bg-beige);
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    border: 2px solid var(--black);
+    cursor: pointer;
+    box-shadow: 5px 5px 0px var(--red);
+    transition: transform 0.1s;
+}
+
+.btn-retro:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0px 0px 0px var(--red);
+}
+
+footer {
+    background: var(--black);
+    color: var(--bg-beige);
+    padding: 2rem;
+    text-align: center;
+    border-top: 5px solid var(--red);
+}
+
+/* --- RETRO SOCIAL SIDEBAR --- */
+.retro-sidebar {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.retro-sidebar a {
+    color: var(--black);
+    font-size: 1.5rem;
+    background: var(--bg-beige);
+    border: 2px solid var(--black);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 3px 3px 0px var(--red);
+}
+
+.retro-sidebar a:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px var(--red);
+    background: var(--black);
+    color: var(--white);
+}
+
+
+
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+    .stage-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-top: 100px;
+    }
+
+    .hero-text-left,
+    .hero-text-right {
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+        z-index: 10;
+        padding: 0 1rem;
+    }
+
+    .hero-image-container {
+        opacity: 0.3;
+        /* push to background on mobile */
+        position: absolute;
+    }
+
+    .project-item {
+        grid-template-columns: 1fr;
+    }
+
+    .stage-grid {
+        grid-template-columns: 1fr;
+    }
+}
