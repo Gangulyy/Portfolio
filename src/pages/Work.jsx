@@ -36,7 +36,7 @@ function Work() {
           <div className="project-info">
             <span className="tech-stack">React :: Tailwind</span>
             <h3>HELA NOSTALGIC ARCHIVE <span style={{ fontSize: '0.5em', color: 'var(--red)', verticalAlign: 'middle' }}>(ONGOING)</span></h3>
-            <p>A digital archive preserving Sinhala pop culture, featuring a retro UI and nostalgic content from 90s and 2000s Sri Lankan media.</p>
+            <p>A digital archive preserving old Sinhala culture, featuring a retro UI and nostalgic content from 60s to 90s Sri Lankan media.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '20px' }}>
               <a href="https://hela-nostalgic-archive.vercel.app/" target="_blank" rel="noreferrer" className="btn-retro" style={{ textDecoration: 'none' }}>
                 LIVE SITE
@@ -58,7 +58,7 @@ function Work() {
           <div className="project-info">
             <span className="tech-stack">Maya :: After Effects</span>
             <h3>3D MODELING & VFX</h3>
-            <p>Modeled, textured, lit, and rendered a complex 3D interior scene entirely from scratch, followed by high-quality retro post-production compositing.</p>
+            <p>Modeled, textured, lit, and rendered a complex 3D interior scene entirely from scratch, followed by high-quality post-production compositing.</p>
             <a href="https://github.com/Gangulyy" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'block', marginTop: '20px', textDecoration: 'none', textAlign: 'center' }}>
               INITIATE VIEW
             </a>

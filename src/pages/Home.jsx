@@ -20,14 +20,14 @@ function Home() {
 
       <div className="hero-text-right">
         <h2>
-          ASPIRING<br />
-          TECH<br />
-          ENTHUSIAST
+          Aspiring<br />
+          Designer<br />
+          & Developer
         </h2>
         <div className="retro-stamp">ARCHIVE // 2025</div>
         <p>
           Translating concepts into <br />
-          structured frontend logic.
+          structured logic.
         </p>
       </div>
     </section>
