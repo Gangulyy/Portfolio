@@ -16,10 +16,10 @@ function Work() {
             <h3>MODELLE - STL PLATFORM <span style={{ fontSize: '0.5em', color: 'var(--red)', verticalAlign: 'middle' }}>(ONGOING)</span></h3>
             <p>Developing a web-based platform that enables users to assess STL model printability and receive automated 3D printing cost estimations within a structured brutalist application environment.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '20px' }}>
-              <a href="https://www.modelle.lk/" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', textDecoration: 'none' }}>
+              <a href="https://www.modelle.lk/" target="_blank" rel="noreferrer" className="btn-retro" style={{ textDecoration: 'none' }}>
                 LIVE SITE
               </a>
-              <a href="https://github.com/Gangulyy" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', textDecoration: 'none' }}>
+              <a href="https://github.com/Gangulyy" target="_blank" rel="noreferrer" className="btn-retro" style={{ textDecoration: 'none' }}>
                 GIT REPO
               </a>
             </div>
@@ -38,10 +38,10 @@ function Work() {
             <h3>HELA NOSTALGIC ARCHIVE <span style={{ fontSize: '0.5em', color: 'var(--red)', verticalAlign: 'middle' }}>(ONGOING)</span></h3>
             <p>A digital archive preserving Sinhala pop culture, featuring a retro UI and nostalgic content from 90s and 2000s Sri Lankan media.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '20px' }}>
-              <a href="https://hela-nostalgic-archive.vercel.app/" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', textDecoration: 'none' }}>
+              <a href="https://hela-nostalgic-archive.vercel.app/" target="_blank" rel="noreferrer" className="btn-retro" style={{ textDecoration: 'none' }}>
                 LIVE SITE
               </a>
-              <a href="https://github.com/Gangulyy/HelaNostalgicArchive.git" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', textDecoration: 'none' }}>
+              <a href="https://github.com/Gangulyy/HelaNostalgicArchive.git" target="_blank" rel="noreferrer" className="btn-retro" style={{ textDecoration: 'none' }}>
                 GIT REPO
               </a>
             </div>
@@ -59,7 +59,7 @@ function Work() {
             <span className="tech-stack">Maya :: After Effects</span>
             <h3>3D MODELING & VFX</h3>
             <p>Modeled, textured, lit, and rendered a complex 3D interior scene entirely from scratch, followed by high-quality retro post-production compositing.</p>
-            <a href="https://github.com/Gangulyy" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', marginTop: '20px', textDecoration: 'none' }}>
+            <a href="https://github.com/Gangulyy" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'block', marginTop: '20px', textDecoration: 'none', textAlign: 'center' }}>
               INITIATE VIEW
             </a>
           </div>

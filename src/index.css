@@ -558,19 +558,30 @@ footer {
     .stage-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .project-item {
+        grid-template-columns: 1fr;
+    }
+    .project-img {
+        max-height: 300px;
+    }
 }
 
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        padding: 1rem;
-        gap: 1rem;
+        padding: 1rem 0.5rem;
+        gap: 0.5rem;
     }
 
     .navbar nav {
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
+    }
+
+    .navbar nav a {
+        font-size: 0.8rem;
     }
 
     .hero {
@@ -633,15 +644,25 @@ footer {
     }
 
     .vintage-header {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .project-info h3 {
+        font-size: 1.5rem;
     }
 
     .project-item {
         grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
     }
 
     .stage-grid {
         grid-template-columns: 1fr;
+    }
+
+    .retro-sidebar {
+        display: none;
     }
 
     .grid-cell {
