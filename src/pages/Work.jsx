@@ -13,28 +13,38 @@ function Work() {
           />
           <div className="project-info">
             <span className="tech-stack">React :: Node.js :: Python</span>
-            <h3>MODELLE - STL PLATFORM</h3>
+            <h3>MODELLE - STL PLATFORM <span style={{ fontSize: '0.5em', color: 'var(--red)', verticalAlign: 'middle' }}>(ONGOING)</span></h3>
             <p>Developing a web-based platform that enables users to assess STL model printability and receive automated 3D printing cost estimations within a structured brutalist application environment.</p>
-            <a href="https://github.com/Gangulyy" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', marginTop: '20px', textDecoration: 'none' }}>
-              INITIATE VIEW
-            </a>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '20px' }}>
+              <a href="https://www.modelle.lk/" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', textDecoration: 'none' }}>
+                LIVE SITE
+              </a>
+              <a href="https://github.com/Gangulyy" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', textDecoration: 'none' }}>
+                GIT REPO
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="project-item">
           <img
             src="/images/g.png"
-            alt="Traffic"
+            alt="Hela Nostalgic Archive"
             className="project-img"
-            onError={(e) => { e.target.src = 'https://via.placeholder.com/350x250/111/dcd3c6?text=Traffic+System'; }}
+            onError={(e) => { e.target.src = 'https://via.placeholder.com/350x250/111/dcd3c6?text=Hela+Archive'; }}
           />
           <div className="project-info">
-            <span className="tech-stack">Python :: Tkinter</span>
-            <h3>TRAFFIC DATA ANALYSIS</h3>
-            <p>Processed and analyzed traffic datasets using Python to extract patterns and generate structured analytical outputs utilizing Tkinter for an intuitive desktop GUI.</p>
-            <a href="https://github.com/Gangulyy" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', marginTop: '20px', textDecoration: 'none' }}>
-              INITIATE VIEW
-            </a>
+            <span className="tech-stack">React :: Tailwind</span>
+            <h3>HELA NOSTALGIC ARCHIVE <span style={{ fontSize: '0.5em', color: 'var(--red)', verticalAlign: 'middle' }}>(ONGOING)</span></h3>
+            <p>A digital archive preserving Sinhala pop culture, featuring a retro UI and nostalgic content from 90s and 2000s Sri Lankan media.</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '20px' }}>
+              <a href="https://hela-nostalgic-archive.vercel.app/" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', textDecoration: 'none' }}>
+                LIVE SITE
+              </a>
+              <a href="https://github.com/Gangulyy/HelaNostalgicArchive.git" target="_blank" rel="noreferrer" className="btn-retro" style={{ display: 'inline-block', textDecoration: 'none' }}>
+                GIT REPO
+              </a>
+            </div>
           </div>
         </div>
 

@@ -1,4 +1,33 @@
+import { useState } from 'react';
+
 function Contact() {
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('TRANSMITTING...');
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/gangulyyr@gmail.com", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setStatus('TRANSMISSION SUCCESSFUL.');
+        e.target.reset();
+      } else {
+        setStatus('TRANSMISSION FAILED. RETRY.');
+      }
+    } catch (error) {
+      setStatus('SYSTEM ERROR. AWAITING RETRY.');
+    }
+
+    setTimeout(() => setStatus(''), 5000);
+  };
+
   return (
     <section id="contact" className="vintage-container" style={{ backgroundColor: 'var(--black)', color: 'var(--bg-beige)', borderBottom: 'none' }}>
       <h2 className="vintage-header" style={{ color: 'var(--bg-beige)', borderColor: 'var(--bg-beige)', borderBottomWidth: '2px' }}>
@@ -19,21 +48,24 @@ function Contact() {
         </div>
 
         <div className="contact-box">
-          <form action="#" method="post" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style={{ display: 'none' }} />
+            
             <div>
               <label>USER ID [NAME]</label>
-              <input type="text" style={{ width: '100%', padding: '10px', marginTop: '5px' }} />
+              <input type="text" name="name" required style={{ width: '100%', padding: '10px', marginTop: '5px' }} />
             </div>
             <div>
               <label>PING ADDRESS [EMAIL]</label>
-              <input type="email" style={{ width: '100%', padding: '10px', marginTop: '5px' }} />
+              <input type="email" name="email" required style={{ width: '100%', padding: '10px', marginTop: '5px' }} />
             </div>
             <div>
               <label>DATA PACKET [MESSAGE]</label>
-              <textarea rows={4} style={{ width: '100%', padding: '10px', marginTop: '5px' }}></textarea>
+              <textarea name="message" rows={4} required style={{ width: '100%', padding: '10px', marginTop: '5px' }}></textarea>
             </div>
             <button type="submit" className="btn-retro" style={{ width: '100%' }}>
-              TRANSMIT
+              {status || 'TRANSMIT'}
             </button>
           </form>
         </div>
